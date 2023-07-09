@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xiubbs</groupId>
+    <artifactId>chatgpt-common-bom</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <description>
+        chatgpt-common-bom common依赖项
+    </description>
+
+    <properties>
+        <revision>1.0.0</revision>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 核心模块 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 接口模块 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-doc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 幂等 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-idempotent</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 调度模块 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-job</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 日志记录 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 邮件服务 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-mail</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 限流 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-ratelimiter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 缓存服务 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- web服务 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 序列化模块 -->
+            <dependency>
+                <groupId>com.xiubbs</groupId>
+                <artifactId>chatgpt-common-json</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

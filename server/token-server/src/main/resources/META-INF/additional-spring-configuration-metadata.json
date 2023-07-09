@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "token.postSecurityKey",
+      "type": "java.lang.String",
+      "description": "Description for token.postSecurityKey."
+    }
+  ]
+}

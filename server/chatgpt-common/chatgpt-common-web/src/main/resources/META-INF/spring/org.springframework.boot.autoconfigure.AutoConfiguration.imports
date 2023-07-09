@@ -1,0 +1,5 @@
+com.xiubbs.common.web.config.CaptchaConfig
+com.xiubbs.common.web.config.FilterConfig
+com.xiubbs.common.web.config.I18nConfig
+com.xiubbs.common.web.config.ResourcesConfig
+com.xiubbs.common.web.config.UndertowConfig

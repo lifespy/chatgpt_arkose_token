@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>chatgpt_cms</artifactId>
+        <groupId>com.xiubbs</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>chatgpt-common-bom</module>
+        <module>chatgpt-common-core</module>
+        <module>chatgpt-common-doc</module>
+        <module>chatgpt-common-idempotent</module>
+        <module>chatgpt-common-log</module>
+        <module>chatgpt-common-mail</module>
+        <module>chatgpt-common-ratelimiter</module>
+        <module>chatgpt-common-redis</module>
+        <module>chatgpt-common-web</module>
+        <module>chatgpt-common-json</module>
+    </modules>
+
+    <artifactId>chatgpt-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        common 通用模块
+    </description>
+
+</project>

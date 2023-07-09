@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>chatgpt_cms</artifactId>
+        <groupId>com.xiubbs</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>token-server</artifactId>
+
+    <description>
+        web服务入口
+    </description>
+
+    <dependencies>
+
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-ratelimiter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-doc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-log</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiubbs</groupId>
+            <artifactId>chatgpt-common-idempotent</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- 设置 jitpack.io 插件仓库 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${project.artifactId}</warName>
+                </configuration>
+            </plugin>
+
+            <!--            <plugin>-->
+            <!--                <groupId>com.github.core-lib</groupId>-->
+            <!--                <artifactId>xjar-maven-plugin</artifactId>-->
+            <!--                <version>4.0.2</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>build</goal>-->
+            <!--                        </goals>-->
+            <!--                        <phase>package</phase>-->
+            <!-- 或使用
+            <phase>install</phase>
+            -->
+            <!--                        <configuration>-->
+            <!--                            <password>abc</password>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+
+</project>

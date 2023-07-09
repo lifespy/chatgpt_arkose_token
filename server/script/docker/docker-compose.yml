@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:14.2
+    container_name: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/docker/postgres/data:/var/lib/postgresql/data
+    network_mode: "host"
+
+  nginx-web:
+    image: nginx:1.23.4
+    container_name: nginx-web
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # 证书映射
+      - /home/docker/nginx/cert:/etc/nginx/cert
+      # 配置文件映射
+      - /home/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      # 页面目录
+      - /home/docker/nginx/html:/usr/share/nginx/html
+      # 日志目录
+      - /home/docker/nginx/log:/var/log/nginx
+    privileged: true
+    network_mode: "host"
+
+  redis:
+    image: redis:6.2.12
+    container_name: redis
+    ports:
+      - "6379:6379"
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    volumes:
+      # 配置文件
+      - /home/docker/redis/conf:/redis/config:rw
+      # 数据文件
+      - /home/docker/redis/data/:/redis/data/:rw
+    command: "redis-server /redis/config/redis.conf"
+    privileged: true
+    network_mode: "host"
+
+  chatgpt-server:
+    image: api/chatgpt-server:1.0.0
+    container_name: chatgpt-server
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      SERVER_PORT: 8080
+    volumes:
+      # 配置文件
+      - /home/docker/server/logs/:/chatgpt_cms/server/logs/
+    privileged: true
+    network_mode: "host"
