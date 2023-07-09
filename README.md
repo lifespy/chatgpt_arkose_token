@@ -1,6 +1,8 @@
 # chatgpt_arkose_token
 a arkose token server
 
+This is a usable API : [https://arkosetoken.xiu.ee/token](https://arkosetoken.xiu.ee/token)
+
 ### post token:
 post /token
 Content-Type: application/json
