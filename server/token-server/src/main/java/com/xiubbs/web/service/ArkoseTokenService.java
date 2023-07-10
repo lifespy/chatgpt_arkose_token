@@ -51,7 +51,7 @@ public class ArkoseTokenService {
      */
     public R<Token> getToken() {
         Token token = cacheService.getToken();
-        while (token != null && token.getDate().getTime() <= System.currentTimeMillis() - Duration.ofMinutes(30).toMillis()) {
+        while (token != null && token.getDate().getTime() <= System.currentTimeMillis() - Duration.ofMinutes(28).toMillis()) {
             token = cacheService.getToken();
         }
         if (token == null) {

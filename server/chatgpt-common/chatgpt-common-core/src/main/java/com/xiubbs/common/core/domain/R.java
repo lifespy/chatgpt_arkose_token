@@ -1,11 +1,10 @@
 package com.xiubbs.common.core.domain;
 
-import com.xiubbs.common.core.constant.HttpStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serial;
 import java.io.Serializable;
+import com.xiubbs.common.core.constant.HttpStatus;
 
 /**
  * 响应信息主体
@@ -28,7 +27,7 @@ public class R<T> implements Serializable {
      * 失败
      */
     public static final int FAIL = 500;
-    
+
     /**
      * 无了
      */
@@ -41,11 +40,11 @@ public class R<T> implements Serializable {
     private T data;
 
     public static <T> R<T> ok() {
-        return restResult(null, SUCCESS, "操作成功");
+        return restResult(null, SUCCESS, "success");
     }
 
     public static <T> R<T> ok(T data) {
-        return restResult(data, SUCCESS, "操作成功");
+        return restResult(data, SUCCESS, "success");
     }
 
     public static <T> R<T> ok(String msg) {
@@ -57,7 +56,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> fail() {
-        return restResult(null, FAIL, "操作失败");
+        return restResult(null, FAIL, "error");
     }
 
     public static <T> R<T> fail(String msg) {
@@ -65,7 +64,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> fail(T data) {
-        return restResult(data, FAIL, "操作失败");
+        return restResult(data, FAIL, "error");
     }
 
     public static <T> R<T> fail(String msg, T data) {
