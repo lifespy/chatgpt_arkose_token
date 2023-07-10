@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"os"
 	"time"
 
@@ -12,6 +13,7 @@ var (
 	webDriver selenium.WebDriver
 )
 
+//goland:noinspection GoUnhandledErrorResult
 func init() {
 	chromeArgs := []string{
 		"--no-sandbox",
@@ -28,11 +30,19 @@ func init() {
 			Args:            chromeArgs,
 			ExcludeSwitches: []string{"enable-automation"},
 		},
-	}, os.Getenv("url"))
+	}, os.Getenv("CHATGPT_PROXY_SERVER"))
 
 	webDriver.Get("http://sgp.xiu.ee/token.html")
+	element, _ := webDriver.FindElement(selenium.ByTagName, "div")
+
+	for {
+		time.Sleep(time.Second * 5)
+		text, _ := element.Text()
+		fmt.Println(text)
+	}
 }
 
+//goland:noinspection GoUnhandledErrorResult
 func GenerateArkoseToken() error {
 	webDriver.Refresh()
 	return nil

@@ -1,0 +1,16 @@
+services:
+  chatgpt-arkose-token-provider:
+    container_name: chatgpt-arkose-token-provider
+    image: lifespy/chatgpt-arkose-token-provider
+    environment:
+      - CHATGPT_PROXY_SERVER=http://chatgpt-proxy-server:9515
+    depends_on:
+      - chatgpt-proxy-server
+    restart: unless-stopped
+
+  chatgpt-proxy-server:
+    container_name: chatgpt-proxy-server
+    image: linweiyuan/chatgpt-proxy-server
+    environment:
+      - LOG_LEVEL=OFF
+    restart: unless-stopped

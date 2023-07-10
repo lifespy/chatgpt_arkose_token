@@ -12,13 +12,20 @@ the headless browser docker:
 
 ```
 services:
+  chatgpt-arkose-token-provider:
+    container_name: chatgpt-arkose-token-provider
+    image: lifespy/chatgpt-arkose-token-provider
+    environment:
+      - CHATGPT_PROXY_SERVER=http://chatgpt-proxy-server:9515
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
   chatgpt-proxy-server:
     container_name: chatgpt-proxy-server
     image: linweiyuan/chatgpt-proxy-server
     environment:
       - LOG_LEVEL=OFF
-    ports:
-      - 9515:9515
     restart: unless-stopped
 ```
 
