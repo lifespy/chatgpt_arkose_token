@@ -34,11 +34,6 @@ func init() {
 }
 
 func GenerateArkoseToken() error {
-	element, _ := webDriver.FindElement(selenium.ByID, "#atoken")
-
-	element.Click()
-	time.Sleep(time.Second * 2)
-
 	webDriver.Refresh()
 	return nil
 }
