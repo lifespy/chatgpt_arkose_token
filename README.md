@@ -6,7 +6,7 @@ This is a usable API : [https://arkosetoken.xiu.ee/token](https://arkosetoken.xi
 
 You can use a headless browser on your server to visit [http://sgp.xiu.ee/token.html](http://sgp.xiu.ee/token.html) . This will contribute a usable token for us.
 
-the headless broswer docker:
+the headless browser docker:
 
 ```
 services:
