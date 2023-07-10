@@ -21,4 +21,4 @@ jobs:
         with:
           context: "{{defaultContext}}:agent"
           push: true
-          tags: ${{ github.actor }}/chatgpt-arkose-token-provider
+          tags: lifespy/chatgpt-arkose-token-provider
