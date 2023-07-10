@@ -1,5 +1,7 @@
 # chatgpt_arkose_token
 
+Link hub: [a chatgpt web convert to api project](https://github.com/linweiyuan/go-chatgpt-api)
+
 a arkose token server
 
 This is a usable API : [https://arkosetoken.xiu.ee/token](https://arkosetoken.xiu.ee/token)
