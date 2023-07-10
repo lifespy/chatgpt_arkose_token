@@ -1,15 +1,16 @@
 package com.xiubbs.web.service;
 
 import cn.hutool.core.util.IdUtil;
+import java.time.Duration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import com.xiubbs.common.core.domain.R;
 import com.xiubbs.common.web.config.properties.TokenProperties;
 import com.xiubbs.common.web.utils.RequestUtil;
 import com.xiubbs.web.conts.HeaderConstant;
 import com.xiubbs.web.domain.Token;
 import com.xiubbs.web.dto.TokenDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 
 /**
  * 注册校验方法
@@ -50,6 +51,9 @@ public class ArkoseTokenService {
      */
     public R<Token> getToken() {
         Token token = cacheService.getToken();
+        while (token != null && token.getDate().getTime() <= System.currentTimeMillis() - Duration.ofMinutes(30).toMillis()) {
+            token = cacheService.getToken();
+        }
         if (token == null) {
             return R.fail(R.NOTFOUND, "no token");
         }
