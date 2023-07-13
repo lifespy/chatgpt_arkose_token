@@ -49,7 +49,12 @@ public class ArkoseTokenService {
     /**
      * 获取token
      */
-    public R<Token> getToken() {
+    public R<Token> getToken(String key) {
+        if (tokenProperties.getEnable()){
+            if (!tokenProperties.getGetSecurityKey().equals(key)) {
+                return R.fail("key was error!");
+            }
+        }
         Token token = cacheService.getToken();
         while (token != null && token.getDate().getTime() <= System.currentTimeMillis() - Duration.ofMinutes(28).toMillis()) {
             token = cacheService.getToken();
